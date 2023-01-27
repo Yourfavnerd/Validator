@@ -1,0 +1,25 @@
+{
+  "name": "userval-checker",
+  "version": "1.1.1",
+  "description": "Simple JS code Validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NamelesssNerd/Validator.git"
+  },
+  "keywords": [
+    "javascript",
+    "NamelesssNerd",
+    "namelessnerd",
+    "type-validator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NamelesssNerd/Validator/issues"
+  },
+  "homepage": "https://github.com/NamelesssNerd/Validator#readme"
+}
