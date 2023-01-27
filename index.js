@@ -1,4 +1,5 @@
 const validateText = "`~ 1234567890-=!@#$%^&*()_+[]{};':,./<>?\|";
+const component = ["h1", "h2", "h3", "h4", "h5", "h6", "p"];
 const afterValidateText = '"';
 const validateNumberCheckLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
@@ -59,4 +60,45 @@ const Especial = (options) => {
         return 0;
     }
 }
-module.exports = { Eletter, Enumber, Especial };
+const giveMePosition = (data, H) => {
+    if (component.includes(lowerConvert(H))) {
+        const userVal = lowerConvert(H);
+        let returnVal;
+        data.map((curenelem, i) => {
+            if (curenelem == userVal) {
+                returnVal = i;
+            }
+        })
+        return returnVal
+    } else {
+        return -1;
+    }
+}
+const maker = (H, data, position, link) => {
+    if (link) {
+        const createDiv = document.getElementById(position);
+        const pos = giveMePosition(component, H)
+        console.log(pos)
+        if (pos >= 0) {
+            data.map((currenelem) => {
+                const totalData = `<${component[pos]}>
+                <a href=${currenelem[1]}>${currenelem[0]}</a>
+                </${component[pos]}>`;
+                createDiv.insertAdjacentHTML("beforeend", totalData);
+            })
+        }
+    } else {
+        const createDiv = document.getElementById(position);
+        const pos = giveMePosition(component, H)
+        if (pos >= 0) {
+            data.map((currenelem) => {
+                const totalData = `<${component[pos]}>${currenelem}</${component[pos]}>`;
+                createDiv.insertAdjacentHTML("beforeend", totalData);
+            })
+        }
+    }
+}
+
+
+
+module.exports = { Eletter, Enumber, Especial, giveMePosition, maker };
