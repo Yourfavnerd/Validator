@@ -2,6 +2,22 @@ const validateText = "`~ 1234567890-=!@#$%^&*()_+[]{};':,./<>?\|";
 const afterValidateText = '"';
 const validateNumberCheckLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
+const upperConvert = (options) => {
+    if (!options == "") {
+        const upperLetter = options.toUpperCase();
+        return upperLetter;
+    } else {
+        return 0
+    }
+}
+const lowerConvert = (options) => {
+    if (!options == "") {
+        const upperLetter = options.toLowerCase();
+        return upperLetter;
+    } else {
+        return 0
+    }
+}
 const Eletter = (options) => {
     if ((!options) == "") {
         let totalLetter = "";
@@ -9,7 +25,7 @@ const Eletter = (options) => {
         seperateAll.map((letter) => {
             validateText.includes(letter) ? "" : (afterValidateText.includes(letter) ? "" : (totalLetter += letter));
         })
-        refinedSearch = totalLetter.toLowerCase()
+        refinedSearch = lowerConvert(totalLetter);
         return refinedSearch;
     } else {
         return 0;
@@ -28,14 +44,6 @@ const Enumber = (options) => {
         return 0;
     }
 }
-const upperConvert = (options) => {
-    if (!options == "") {
-        const upperLetter = options.toUpperCase();
-        return upperLetter;
-    } else {
-        return 0
-    }
-}
 const Especial = (options) => {
     if (!options == "") {
         let totalSpecial = "";
@@ -51,5 +59,4 @@ const Especial = (options) => {
         return 0;
     }
 }
-
 module.exports = { Eletter, Enumber, Especial };
