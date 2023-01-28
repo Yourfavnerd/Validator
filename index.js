@@ -1,5 +1,4 @@
 const validateText = "`~ 1234567890-=!@#$%^&*()_+[]{};':,./<>?\|";
-const component = ["h1", "h2", "h3", "h4", "h5", "h6", "p"];
 const afterValidateText = '"';
 const validateNumberCheckLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
@@ -66,39 +65,40 @@ const giveMePosition = (data, H) => {
         let returnVal;
         data.map((curenelem, i) => {
             if (curenelem == userVal) {
-                returnVal = i;
+                returnVal = ++i;
             }
         })
         return returnVal
     } else {
-        return -1;
+        return 0;
     }
 }
-const maker = (H, data, position, link) => {
-    if (link) {
-        const createDiv = document.getElementById(position);
-        const pos = giveMePosition(component, H)
-        console.log(pos)
-        if (pos >= 0) {
-            data.map((currenelem) => {
-                const totalData = `<${component[pos]}>
-                <a href=${currenelem[1]}>${currenelem[0]}</a>
-                </${component[pos]}>`;
-                createDiv.insertAdjacentHTML("beforeend", totalData);
-            })
-        }
-    } else {
-        const createDiv = document.getElementById(position);
-        const pos = giveMePosition(component, H)
-        if (pos >= 0) {
-            data.map((currenelem) => {
-                const totalData = `<${component[pos]}>${currenelem}</${component[pos]}>`;
-                createDiv.insertAdjacentHTML("beforeend", totalData);
-            })
+const giveMeRandom = (value) => {
+    let randomnumber = Math.floor(Math.random() * value)
+    return randomnumber;
+}
+const suffleMe = (data) => {
+    const newData = [];
+    const length = data.length;
+    let random = giveMeRandom(length);
+    let tol = length;
+    let randomSaver = [];
+    let returnRandom = [];
+    let actual = 0;
+    for (var i = 0; i <= tol; i++) {
+        if (actual == length) {
+            returnRandom = newData;
+        } else {
+            if (!randomSaver.includes(random)) {
+                newData[actual] = data[random];
+                randomSaver.push(random)
+                actual++
+            } else {
+                random = giveMeRandom(length);
+                tol++;
+            }
         }
     }
+    return returnRandom
 }
-
-
-
-module.exports = { Eletter, Enumber, Especial, giveMePosition, maker };
+module.exports = { Eletter, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe };
