@@ -1,4 +1,4 @@
-const validateText = "`~ 1234567890-=!@#$%^&*()_+[]{};':,./<>?\|";
+const validateText = "`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|";
 const afterValidateText = '"';
 const validateNumberCheckLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
@@ -22,6 +22,7 @@ const Eletter = (options) => {
     if ((!options) == "") {
         let totalLetter = "";
         const seperateAll = options.split("");
+        let refinedSearch = "";
         seperateAll.map((letter) => {
             validateText.includes(letter) ? "" : (afterValidateText.includes(letter) ? "" : (totalLetter += letter));
         })
