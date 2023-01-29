@@ -1,5 +1,6 @@
 const validateText = "`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|";
 const afterValidateText = '"';
+const fillme = " ";
 const validateNumberCheckLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
 const upperConvert = (options) => {
@@ -35,10 +36,10 @@ const Eletter = (options) => {
 const Enumber = (options) => {
     if (!options == "") {
         let totalNumber = "";
-        const lowerLetter = Eletter(validateNumberCheckLetter);
+        const lowerLetter = lowerConvert(validateNumberCheckLetter);
         const seperateAll = options.split("");
         seperateAll.map((number) => {
-            validateNumberCheckLetter.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number)) ? "" : totalNumber += number);
+            validateNumberCheckLetter.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number)) ? "" : (fillme.includes(number ? "" : totalNumber += number)));
         })
         return totalNumber
     } else {
