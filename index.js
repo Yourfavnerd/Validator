@@ -45,7 +45,7 @@ const ESletter = (options) => {
         return 0;
     }
 }
-const Enumber = (options) => {
+const ESnumber = (options) => {
     if (!options == "") {
         let totalNumber = "";
         const lowerLetter = lowerConvert(validateNumberCheckLetter);
@@ -58,6 +58,20 @@ const Enumber = (options) => {
         return 0;
     }
 }
+const Enumber = (options) => {
+    if (!options == "") {
+        let totalNumber = "";
+        const lowerLetter = lowerConvert(validateNumberCheckLetter);
+        const seperateAll = options.split("");
+        seperateAll.map((number) => {
+            validateNumberCheckLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (fillme.includes(number) ? "" : (totalNumber += number))));
+        })
+        return Math.floor(totalNumber)
+    } else {
+        return 0;
+    }
+}
+
 const Especial = (options) => {
     if (!options == "") {
         let totalSpecial = "";
@@ -115,4 +129,4 @@ const suffleMe = (data) => {
     }
     return returnRandom
 }
-module.exports = { Eletter, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe };
+module.exports = { Eletter, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe, ESletter, ESnumber };
