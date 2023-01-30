@@ -87,9 +87,9 @@ const Especial = (options) => {
         return 0;
     }
 }
-const giveMePosition = (data, H) => {
-    if (component.includes(lowerConvert(H))) {
-        const userVal = lowerConvert(H);
+const giveMePosition = (data, options) => {
+    if (component.includes(lowerConvert(options))) {
+        const userVal = lowerConvert(options);
         let returnVal;
         data.map((curenelem, i) => {
             if (curenelem == userVal) {
