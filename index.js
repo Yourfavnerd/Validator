@@ -118,7 +118,7 @@ const suffleMe = (data) => {
             returnRandom = newData;
         } else {
             if (!randomSaver.includes(random)) {
-                newData[actual] = data[random];
+                newData.push(data[random])
                 randomSaver.push(random)
                 actual++
             } else {
@@ -129,4 +129,4 @@ const suffleMe = (data) => {
     }
     return returnRandom
 }
-module.exports = { Eletter, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe, ESletter, ESnumber };
+module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe };
