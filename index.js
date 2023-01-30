@@ -129,4 +129,15 @@ const suffleMe = (data) => {
     }
     return returnRandom
 }
-module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe };
+const RangeData = (Data, initial, final) => {
+    if (Data.length < final) {
+        return 0;
+    } else {
+        let finalData = [];
+        for (var i = initial; i <= final; i++) {
+            finalData.push(Data[i]);
+        }
+        return finalData;
+    }
+}
+module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe, RangeData };
