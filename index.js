@@ -39,7 +39,7 @@ const Enumber = (options) => {
         const lowerLetter = lowerConvert(validateNumberCheckLetter);
         const seperateAll = options.split("");
         seperateAll.map((number) => {
-            validateNumberCheckLetter.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number)) ? "" : (fillme.includes(number ? "" : totalNumber += number)));
+            validateNumberCheckLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (fillme.includes(number) ? "" : (totalNumber += number))));
         })
         return totalNumber
     } else {
