@@ -33,6 +33,18 @@ const Eletter = (options) => {
         return 0;
     }
 }
+const ESletter = (options) => {
+    if ((!options) == "") {
+        let totalLetter = "";
+        const seperateAll = options.split("");
+        seperateAll.map((letter) => {
+            validateText.includes(letter) ? "" : (afterValidateText.includes(letter) ? "" : (totalLetter += letter));
+        })
+        return totalLetter;
+    } else {
+        return 0;
+    }
+}
 const Enumber = (options) => {
     if (!options == "") {
         let totalNumber = "";

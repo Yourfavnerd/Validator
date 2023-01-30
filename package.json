@@ -1,6 +1,6 @@
 {
   "name": "userval-checker",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Simple JS code Validator",
   "main": "index.js",
   "scripts": {
