@@ -140,4 +140,13 @@ const RangeData = (Data, initial, final) => {
         return finalData;
     }
 }
-module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe, RangeData };
+const deleteData = (oldData, position) => {
+    let returnData = [];
+    oldData.map((currenElem, index) => {
+        if (position !== index) {
+            returnData.push(currenElem);
+        }
+    })
+    return returnData;
+}
+module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMePosition, giveMeRandom, suffleMe, RangeData, deleteData };
