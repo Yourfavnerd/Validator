@@ -1,5 +1,7 @@
 index.html
 test.js
+test.ts
 style.css
 node_modules
 moviedatas.json
+tsconfig.json
