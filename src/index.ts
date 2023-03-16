@@ -3,6 +3,7 @@ const afterValidateText: string = '"';
 const fillme: string = " ";
 const validateNumberCheckLetter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial: string = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
+const checkEmail: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const upperConvert = (options: string): string => {
     if (!(options === "")) {
@@ -139,5 +140,7 @@ const deleteData = (oldData: (string | number)[], position: number): (string | n
         throw new Error("cannot empty")
     }
 }
-
-module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMeRandom, suffleMe, RangeData, deleteData };
+function isEmail(email: string): boolean {
+    return checkEmail.test(email);
+}
+module.exports = { Eletter, ESletter, ESnumber, Enumber, Especial, giveMeRandom, suffleMe, RangeData, deleteData, isEmail };
