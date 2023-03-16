@@ -1,6 +1,7 @@
 const validateText: string = "`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|";
 const afterValidateText: string = '"';
 const fillme: string = " ";
+const checkEmail: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const validateNumberCheckLetter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const validateNumberCheckSpecial: string = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
 class Validator {
@@ -137,6 +138,9 @@ class Validator {
         } else {
             throw new Error("cannot empty")
         }
+    }
+    isEmail(email: string): boolean {
+        return checkEmail.test(email);
     }
 }
 export default Validator;
