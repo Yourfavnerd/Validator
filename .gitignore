@@ -5,4 +5,5 @@ style.css
 node_modules
 moviedatas.json
 tsconfig.json
+temp.ts
 lib/
