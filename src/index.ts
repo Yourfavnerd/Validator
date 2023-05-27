@@ -143,5 +143,4 @@ class Validator {
         return checkEmail.test(email);
     }
 }
-const validator = new Validator
-module.exports =validator;
+export default Validator
