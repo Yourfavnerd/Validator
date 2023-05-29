@@ -1,6 +1,6 @@
 {
   "name": "userval-checker",
-  "version": "2.0.6",
+  "version": "2.0.10",
   "description": "Simple JS code Validator",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/NamelesssNerd/Validator/issues"
   },
-  "homepage": "https://github.com/NamelesssNerd/Validator#readme",
+  "homepage": "https://github.com/NamelesssNerd/Validator#readme.md",
   "devDependencies": {
     "@types/node": "^18.15.3",
     "typescript": "^4.9.5"
