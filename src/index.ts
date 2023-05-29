@@ -1,10 +1,10 @@
-const validateText: string = "`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|";
-const afterValidateText: string = '"';
-const fillme: string = " ";
-const checkEmail: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const validateNumberCheckLetter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const validateNumberCheckSpecial: string = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
 class Validator {
+    validateText: string = "`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|";
+    afterValidateText: string = '"';
+    fillme: string = " ";
+    checkEmail: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    validateNumberCheckLetter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    validateNumberCheckSpecial: string = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
     upperConvert = (options: string): string => {
         if (!(options === "")) {
             const upperLetter: string = options.toUpperCase();
@@ -26,7 +26,7 @@ class Validator {
             let totalLetter: string = "";
             const seperateAll: string[] = options.split("");
             seperateAll.map((letter: string) => {
-                validateText.includes(letter) ? "" : (afterValidateText.includes(letter) ? "" : (totalLetter += letter));
+                this.validateText.includes(letter) ? "" : (this.afterValidateText.includes(letter) ? "" : (totalLetter += letter));
             })
             return this.lowerConvert(totalLetter)
         } else {
@@ -38,7 +38,7 @@ class Validator {
             let totalLetter: string = "";
             const seperateAll: string[] = options.split("");
             seperateAll.map((letter: string) => {
-                validateText.includes(letter) ? "" : (afterValidateText.includes(letter) ? "" : (totalLetter += letter));
+                this.validateText.includes(letter) ? "" : (this.afterValidateText.includes(letter) ? "" : (totalLetter += letter));
             })
             return totalLetter;
         } else {
@@ -48,11 +48,11 @@ class Validator {
     Enumber = (options: string): number => {
         if (!(options === "")) {
             let totalNumber: string = "";
-            let lowerLetters: string | 0 = this.lowerConvert(validateNumberCheckLetter);
+            let lowerLetters: string | 0 = this.lowerConvert(this.validateNumberCheckLetter);
             let lowerLetter: string = lowerLetters as string
             const seperateAll: string[] = options.split("");
             seperateAll.map((number: string) => {
-                validateNumberCheckLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (fillme.includes(number) ? "" : (totalNumber += number))));
+                this.validateNumberCheckLetter.includes(number) ? "" : (this.validateNumberCheckSpecial.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (this.fillme.includes(number) ? "" : (totalNumber += number))));
             })
             return Number(totalNumber)
         } else {
@@ -62,11 +62,11 @@ class Validator {
     ESnumber = (options: string): string => {
         if (!(options === "")) {
             let totalNumber: string = "";
-            const lowerLetters: string | 0 = this.lowerConvert(validateNumberCheckLetter);
+            const lowerLetters: string | 0 = this.lowerConvert(this.validateNumberCheckLetter);
             const lowerLetter: string = lowerLetters as string
             const seperateAll: string[] = options.split("");
             seperateAll.map((number: string) => {
-                validateNumberCheckLetter.includes(number) ? "" : (validateNumberCheckSpecial.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (fillme.includes(number) ? "" : (totalNumber += number))));
+                this.validateNumberCheckLetter.includes(number) ? "" : (this.validateNumberCheckSpecial.includes(number) ? "" : (lowerLetter.includes(number) ? "" : (this.fillme.includes(number) ? "" : (totalNumber += number))));
             })
             return totalNumber
         } else {
@@ -140,7 +140,7 @@ class Validator {
         }
     }
     isEmail(email: string): boolean {
-        return checkEmail.test(email);
+        return this.checkEmail.test(email);
     }
 }
 export default Validator
