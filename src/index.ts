@@ -1,10 +1,18 @@
-class Validator {
-    validateText: string = "`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|";
-    afterValidateText: string = '"';
-    fillme: string = " ";
-    checkEmail: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    validateNumberCheckLetter: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    validateNumberCheckSpecial: string = "`~!@#$%^&*()_+-={[}}|\:;',<.>/?"
+class UserValChecker {
+    validateText: string
+    afterValidateText: string
+    fillme: string
+    checkEmail: RegExp
+    validateNumberCheckLetter: string
+    validateNumberCheckSpecial: string
+    constructor(validateText: string, afterValidateText: string, fillme: string, checkEmail: RegExp, validateNumberCheckLetter: string, validateNumberCheckSpecial: string) {
+        this.validateText = validateText
+        this.afterValidateText = afterValidateText
+        this.fillme = fillme
+        this.checkEmail = checkEmail
+        this.validateNumberCheckLetter = validateNumberCheckLetter
+        this.validateNumberCheckSpecial = validateNumberCheckSpecial
+    }
     upperConvert = (options: string): string => {
         if (!(options === "")) {
             const upperLetter: string = options.toUpperCase();
@@ -143,4 +151,5 @@ class Validator {
         return this.checkEmail.test(email);
     }
 }
+const Validator = new UserValChecker("`~1234567890-= !@#$%^&*()_+[]{};':,./<>?\|", '"', " ", /^[^\s@]+@[^\s@]+\.[^\s@]+$/, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "`~!@#$%^&*()_+-={[}}|\:;',<.>/?")
 export default Validator
